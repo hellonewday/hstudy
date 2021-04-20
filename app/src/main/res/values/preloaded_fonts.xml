@@ -2,6 +2,7 @@
 <resources>
     <array name="preloaded_fonts" translatable="false">
         <item>@font/rasa</item>
+        <item>@font/rasa_bold</item>
         <item>@font/rasa_light</item>
         <item>@font/revalia</item>
     </array>

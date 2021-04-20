@@ -14,15 +14,15 @@ public class MainActivity extends AppCompatActivity {
 
     Animation topAnimation, bottomAnimation;
     TextView title, slogan;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //Animations
-
-        topAnimation = AnimationUtils.loadAnimation(this,R.anim.top_animation);
-        bottomAnimation = AnimationUtils.loadAnimation(this,R.anim.bottom_animation);
+        //Animation
+        topAnimation = AnimationUtils.loadAnimation(this, R.anim.top_animation);
+        bottomAnimation = AnimationUtils.loadAnimation(this, R.anim.bottom_animation);
 
         title = findViewById(R.id.textView);
         slogan = findViewById(R.id.textView2);
@@ -33,9 +33,9 @@ public class MainActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent = new Intent(MainActivity.this,Login.class);
+                Intent intent = new Intent(MainActivity.this, Login.class);
                 startActivity(intent);
             }
-        },SPLASH_SCREEN);
+        }, SPLASH_SCREEN);
     }
 }
