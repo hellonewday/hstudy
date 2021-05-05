@@ -4,14 +4,13 @@ CREATE TABLE Account (
     password varchar(255),
     primary key (id)
 );
-
 CREATE TABLE Student(
 	sid int auto_increment not null,
     account int,
     email varchar(255),
     avatarUrl varchar(255),
     created_at timestamp default now(),
-    dob date,
+    dob time,
     primary key (sid),
     foreign key (account) references Account(id) on delete cascade
 );
@@ -70,3 +69,4 @@ CREATE TABLE StudentVideo(
 	foreign key (sid) references Student(sid) on delete cascade,
     foreign key (vid) references VideoCourse(id) on delete cascade
 );
+
