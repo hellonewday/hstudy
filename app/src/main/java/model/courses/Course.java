@@ -1,4 +1,4 @@
-package model;
+package model.courses;
 
 import com.google.gson.annotations.SerializedName;
 
@@ -20,8 +20,8 @@ public class Course implements Serializable {
     @SerializedName("courseImage")
     private String courseImage;
 
-    @SerializedName("author")
-    private String author;
+    @SerializedName("Author")
+    private String Author;
 
     public Course() {
 
@@ -33,7 +33,7 @@ public class Course implements Serializable {
         this.level = level;
         this.description = description;
         this.courseImage = courseImage;
-        this.author = author;
+        this.Author = author;
     }
 
     public int getId() {
@@ -77,10 +77,10 @@ public class Course implements Serializable {
     }
 
     public String getAuthor() {
-        return author;
+        return Author;
     }
 
     public void setAuthor(String author) {
-        this.author = author;
+        this.Author = author;
     }
 }

@@ -1,13 +1,33 @@
-package model;
+package model.accounts;
+
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 
 public class Account {
-    private String username, password;
-    private int id;
 
-    public Account(String username, String password, int id) {
+    @SerializedName("username")
+    @Expose
+    private String username;
+    @SerializedName("password")
+    @Expose
+    private String password;
+
+    /**
+     * No args constructor for use in serialization
+     *
+     */
+    public Account() {
+    }
+
+    /**
+     *
+     * @param password
+     * @param username
+     */
+    public Account(String username, String password) {
+        super();
         this.username = username;
         this.password = password;
-        this.id = id;
     }
 
     public String getUsername() {
@@ -26,20 +46,12 @@ public class Account {
         this.password = password;
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
     @Override
     public String toString() {
         return "Account{" +
                 "username='" + username + '\'' +
                 ", password='" + password + '\'' +
-                ", id=" + id +
                 '}';
     }
+
 }

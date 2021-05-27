@@ -2,7 +2,9 @@ package com.example.android.hstudy;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.animation.Animation;
@@ -33,7 +35,16 @@ public class MainActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent = new Intent(MainActivity.this, Login.class);
+
+                SharedPreferences prefs = getSharedPreferences("MyPref", Context.MODE_PRIVATE);
+                String user = prefs.getString("user", null);
+
+                Intent intent;
+                if (user == null) {
+                    intent = new Intent(MainActivity.this, Login.class);
+                } else {
+                    intent = new Intent(MainActivity.this, SearchActivity.class);
+                }
                 startActivity(intent);
             }
         }, SPLASH_SCREEN);

@@ -1,28 +1,34 @@
 package com.example.android.hstudy;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
+
+import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 
 import com.google.android.material.chip.Chip;
 
+import org.jetbrains.annotations.NotNull;
+
+import java.io.Serializable;
 import java.util.List;
 
-import model.Course;
-import model.CourseResponse;
+import model.courses.Course;
+import model.courses.CourseResponse;
+import model.courses.CoursesInfo;
 import retrofit.APIUtils;
 import retrofit.service.CourseService;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class SearchActivity extends AppCompatActivity {
+
+public class SearchActivity extends NavigationDrawer {
 
     Chip chip1, chip2, chip3;
     CourseService courseService;
@@ -30,9 +36,16 @@ public class SearchActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_search);
+
+        LayoutInflater inflater = (LayoutInflater) this
+                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View contentView = inflater.inflate(R.layout.activity_search, null, false);
+        drawerLayout.addView(contentView, 0);
 
         chip1 = (Chip) findViewById(R.id.chip5);
+        chip2 = (Chip) findViewById(R.id.chip6);
+
+
         courseService = APIUtils.getCourseService();
 
         chip1.setOnClickListener(new View.OnClickListener() {
@@ -43,9 +56,13 @@ public class SearchActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(Call<CourseResponse> call, Response<CourseResponse> response) {
                         if (response.isSuccessful()) {
-                            List<Course> data;
-                            data = response.body().getCourseList();
-                            Toast.makeText(SearchActivity.this, "Success", Toast.LENGTH_LONG).show();
+                            CoursesInfo info;
+                            info = response.body().getCoursesInfo();
+//                            Toast.makeText(SearchActivity.this, "Number of records: " + info.getCounts(), Toast.LENGTH_LONG).show();
+                            Intent intent = new Intent(SearchActivity.this, ListCourses.class);
+                            intent.putExtra("courses", (Serializable) info.getCourses());
+                            startActivity(intent);
+                            finish();
                         }
                     }
 
@@ -58,27 +75,15 @@ public class SearchActivity extends AppCompatActivity {
             }
         });
 
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle(null);
+        chip2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(SearchActivity.this,"Hello World",Toast.LENGTH_LONG).show();
+            }
+        });
+
+
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.main_menu, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle item selection
-        switch (item.getItemId()) {
-            case R.id.action_settings:
-                Toast.makeText(SearchActivity.this, "Hello Again", Toast.LENGTH_LONG).show();
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-    }
 
 }
