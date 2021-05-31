@@ -22,7 +22,7 @@
             android:fontFamily="@font/rasa_bold"
             android:text="WELCOME TO HSTUDY"
             android:textColor="@color/white"
-            android:textSize="36dp" />
+            android:textSize="36sp" />
 
         <TextView
             android:id="@+id/textView4"
@@ -31,7 +31,7 @@
             android:fontFamily="@font/rasa_bold"
             android:text="Let's find a course"
             android:textColor="@color/white"
-            android:textSize="30dp" />
+            android:textSize="30sp" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/search"
@@ -39,7 +39,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:hint="Tìm kiếm"
+            android:hint="Explore something..."
+            android:textColor="@color/black"
             app:boxCornerRadiusBottomEnd="30dp"
             app:boxCornerRadiusBottomStart="30dp"
             app:boxCornerRadiusTopEnd="30dp"
@@ -50,7 +51,10 @@
                 android:layout_height="wrap_content"
                 android:background="#FAFAFA"
                 android:drawableRight="@drawable/search"
-                android:padding="14dp" />
+                android:imeOptions="actionSearch"
+                android:inputType="text"
+                android:padding="14dp"
+                android:textColor="@color/black" />
         </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -65,7 +69,10 @@
                 android:fontFamily="@font/roboto"
                 android:gravity="center"
                 android:paddingRight="10dp"
-                android:text="Web Development" />
+                android:text="DevOps"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                app:chipBackgroundColor="#DF5050" />
 
             <com.google.android.material.chip.Chip
                 android:id="@+id/chip6"
@@ -74,7 +81,8 @@
                 android:fontFamily="@font/roboto"
                 android:gravity="center"
                 android:paddingRight="10dp"
-                android:text="Security" />
+                android:text="Web Development"
+                app:chipBackgroundColor="#C6CDF1" />
 
             <com.google.android.material.chip.Chip
                 android:id="@+id/chip7"
@@ -83,7 +91,8 @@
                 android:fontFamily="@font/roboto"
                 android:gravity="center"
                 android:paddingRight="10dp"
-                android:text="Software" />
+                android:text="Data Analysis"
+                app:chipBackgroundColor="#E1B11F" />
         </com.google.android.material.chip.ChipGroup>
 
 

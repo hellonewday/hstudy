@@ -9,4 +9,8 @@
     <color name="white">#FFFFFFFF</color>
     <color name="default_color_app">#3F51B5</color>
     <color name="floating_button">#fcba03</color>
+    <color xmlns:tools="http://schemas.android.com/tools" name="mtrl_textinput_default_box_stroke_color" tools:override="true">
+        #fff
+    </color>
+
 </resources>

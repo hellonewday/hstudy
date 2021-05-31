@@ -4,10 +4,12 @@
     <group android:checkableBehavior="single">
         <item android:id="@+id/nav_home" android:title="Home"
             android:icon="@drawable/home_icon"/>
-        <item android:id="@+id/nav_account" android:title="Account"
-            android:icon="@drawable/account_icon"/>
         <item android:id="@+id/nav_catalog" android:title="Catalog"
             android:icon="@drawable/catalog_icon"/>
+        <item android:id="@+id/nav_account" android:title="Account Settings"
+            android:icon="@drawable/account_icon"/>
+        <item android:id="@+id/nav_password" android:title="Change password"
+            android:icon="@drawable/retype_password"/>
         <item android:id="@+id/nav_logout" android:title="Log out"
             android:icon="@drawable/logout_icon"/>
     </group>

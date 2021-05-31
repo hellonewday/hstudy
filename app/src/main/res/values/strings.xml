@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">HStudy</string>
     <string name="title_activity_search">SearchActivity</string>
@@ -11,5 +12,11 @@
     <string name="login_failed">"Login failed"</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-
+    <string name="edit_success">Edit successfully</string>
+    <string name="enroll_success">Enroll successfully</string>
+    <string name="action_error">Oops. There\'s error.</string>
+    <string name="register_success">Register successful.</string>
+    <string name="retrieve_success">Retrieve password successfully.</string>
+    <string name="change_password">Change password successfully. You need to log out to apply new change.</string>
+    <string name="not_supported">This feature is not supported yet.</string>
 </resources>

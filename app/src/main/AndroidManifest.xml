@@ -6,14 +6,23 @@
 
     <application
         android:allowBackup="true"
+        android:hardwareAccelerated="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.HStudy">
-        <activity android:name=".CourseDetail"></activity>
+        <activity android:name=".Catalog"></activity>
+        <activity android:name=".ChangePassword" />
+        <activity android:name=".ForgotPassword" />
+        <activity android:name=".Register" />
+        <activity android:name=".AccountActivity" />
+        <activity android:name=".WatchVideo" />
+        <activity android:name=".VideoList" />
+        <activity android:name=".CourseDetail" />
         <activity android:name=".ListCourses" />
         <activity android:name=".SearchActivity" />
+        <activity android:name=".Login" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,7 +30,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Login" />
 
         <meta-data
             android:name="preloaded_fonts"

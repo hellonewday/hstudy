@@ -10,27 +10,27 @@
     <ImageView
         android:id="@+id/account_image"
         android:layout_width="75dp"
-        android:layout_height="75dp"
-        android:src="@drawable/lulu_classic"
-        android:contentDescription="account"/>
+        android:src="@drawable/default_avatar"
+        android:layout_height="75dp" />
+
     <TextView
-        android:layout_width="wrap_content"
         android:id="@+id/username"
+
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="My Account"
-        android:textSize="24dp"
-        android:textColor="@color/white"
         android:fontFamily="@font/roboto"
-        android:textStyle="bold"
-        />
+        android:text="My Account"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/email"
         android:text="imbayonline@gmail.com"
-        android:textSize="20dp"
+        android:textSize="16dp"
         android:textColor="@color/white"
         android:fontFamily="@font/roboto"
-        android:textStyle="bold"
         />
 </LinearLayout>

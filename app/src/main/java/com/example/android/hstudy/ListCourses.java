@@ -22,8 +22,10 @@ import model.courses.Course;
 public class ListCourses extends NavigationDrawer {
 
     List<Course> data;
-    TextView txt1;
+    TextView txt1, txt2;
+
     private RecyclerView recyclerView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,23 +33,33 @@ public class ListCourses extends NavigationDrawer {
         LayoutInflater inflater = (LayoutInflater) this
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View contentView = inflater.inflate(R.layout.activity_list_courses, null, false);
-        drawerLayout.addView(contentView,0);
+        drawerLayout.addView(contentView, 0);
 
 
         Intent i = getIntent();
         data = (List<Course>) i.getSerializableExtra("courses");
-        txt1 = (TextView)findViewById(R.id.textView5);
+        String query = (String) i.getSerializableExtra("query");
 
-        txt1.setText("Number of courses: "+ data.size());
+        txt1 = (TextView) findViewById(R.id.textView5);
+        txt2 = findViewById(R.id.searchTitle);
 
-        this.recyclerView = (RecyclerView)this.findViewById(R.id.list_courses);
+        txt1.setText("Number of courses: " + data.size());
+        txt2.setText("Serch results for: " + query);
 
-        recyclerView.setAdapter(new CourseAdapter(this,data));
+        this.recyclerView = (RecyclerView) this.findViewById(R.id.list_courses);
 
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false);
+        recyclerView.setAdapter(new CourseAdapter(this, data));
+
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         recyclerView.setLayoutManager(linearLayoutManager);
 
+    }
 
-
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent = new Intent(ListCourses.this, SearchActivity.class);
+        startActivity(intent);
+        finish();
     }
 }

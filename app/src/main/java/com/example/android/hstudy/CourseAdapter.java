@@ -22,40 +22,32 @@ import java.util.List;
 
 import model.courses.Course;
 
-class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.ViewHolder>
-{
+class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.ViewHolder> {
 
     private List<Course> courses;
     private Context mcontext;
-    public CourseAdapter (Context context,List<Course> list)
-    {
-        courses= list;
+
+    public CourseAdapter() {
+    }
+
+    public CourseAdapter(Context context, List<Course> list) {
+        courses = list;
         mcontext = context;
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder
-    {
+    public class ViewHolder extends RecyclerView.ViewHolder {
         ImageView courseImage;
-        TextView tvCourseName,tvAuthor;
+        TextView tvCourseName, tvAuthor;
 
 
-        public ViewHolder(@NonNull View itemView) {
+        public ViewHolder(@NonNull View itemView, int i) {
             super(itemView);
 
-            tvCourseName =itemView.findViewById(R.id.tvCourseName);
-            tvAuthor=itemView.findViewById(R.id.tvAuthor);
-            courseImage=itemView.findViewById(R.id.courseImage);
+            tvCourseName = itemView.findViewById(R.id.tvCourseName);
+            tvAuthor = itemView.findViewById(R.id.tvAuthor);
+            courseImage = itemView.findViewById(R.id.courseImage);
 
-            itemView.setOnClickListener(new View.OnClickListener() {
 
-                @Override
-                public void onClick(View v) {
-
-                    Intent intent = new Intent(mcontext,CourseDetail.class);
-                    mcontext.startActivity(intent);
-
-                }
-            });
         }
     }
 
@@ -63,27 +55,23 @@ class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.ViewHolder>
     @Override
     public CourseAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
 
-        View v= LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.course_item,viewGroup,false);
-        return new ViewHolder(v);
+        View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.course_item, viewGroup, false);
+        return new ViewHolder(v, i);
     }
 
 
-    public Bitmap getBitmapFromUrl(String imageUrl)
-    {
-        try
-        {
+    public Bitmap getBitmapFromUrl(String imageUrl) {
+        try {
             URL url = new URL(imageUrl);
             Bitmap bmp = BitmapFactory.decodeStream(url.openConnection().getInputStream());
             return bmp;
 
-        } catch (Exception e)
-        {
+        } catch (Exception e) {
             e.printStackTrace();
             return null;
 
         }
     }
-
 
 
     @Override
@@ -98,8 +86,17 @@ class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.ViewHolder>
         viewHolder.tvAuthor.setText(courses.get(i).getAuthor());
         viewHolder.courseImage.setImageBitmap(getBitmapFromUrl(courses.get(i).getCourseImage()));
 
-    }
+        viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
 
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(mcontext, CourseDetail.class);
+                intent.putExtra("data", courses.get(i));
+                mcontext.startActivity(intent);
+            }
+        });
+
+    }
 
 
     @Override

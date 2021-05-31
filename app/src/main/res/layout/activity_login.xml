@@ -1,79 +1,109 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/ng_nhp"
+    android:gravity="center"
     android:orientation="vertical"
     android:visibility="visible"
     tools:context=".Login">
 
     <TextView
+        android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="173sp"
-        android:layout_marginLeft="116sp"
         android:fontFamily="@font/revalia"
         android:gravity="center"
         android:text="HStudy"
         android:textColor="#FFFFFF"
-        android:textSize="36sp" />
+        android:textSize="40dp"
+        android:transitionName="title_text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.442"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.233" />
 
     <TextView
+        android:id="@+id/slogan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="96sp"
         android:gravity="center"
         android:text="Hard Study. Better Life"
         android:textColor="#FFFFFF"
-        android:textSize="20sp" />
+        android:textSize="25dp"
+        android:transitionName="subTitle_text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/title"
+        app:layout_constraintHorizontal_bias="0.486"
+        app:layout_constraintStart_toStartOf="@+id/title"
+        app:layout_constraintTop_toBottomOf="@+id/title"
+        app:layout_constraintVertical_bias="0.022" />
 
     <LinearLayout
+        android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="20dp"
+        android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="vertical"
-        android:padding="20dp">
+        android:padding="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.747">
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/username"
-            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:hint="Tên người dùng"
-            app:boxCornerRadiusBottomEnd="30dp"
-            app:boxCornerRadiusBottomStart="30dp"
-            app:boxCornerRadiusTopEnd="30dp"
-            app:boxCornerRadiusTopStart="30dp">
+            android:hint="Username"
+            android:textColorHint="@color/white"
+            android:transitionName="username_input"
+            app:boxStrokeColor="@color/white"
+            app:boxStrokeWidth="2dp"
+            app:hintTextColor="@color/white">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="292dp"
                 android:layout_height="wrap_content"
-                android:background="#FAFAFA" />
+                android:drawableLeft="@drawable/edit_profile"
+                android:drawablePadding="10dp"
+                android:drawableTint="@color/white"
+                android:textColor="@color/white" />
         </com.google.android.material.textfield.TextInputLayout>
+
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/password"
-            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20sp"
             android:layout_marginBottom="20sp"
             android:gravity="center"
-            android:hint="Mật khẩu"
-            app:boxCornerRadiusBottomEnd="30dp"
-            app:boxCornerRadiusBottomStart="30dp"
-            app:boxCornerRadiusTopEnd="30dp"
-            app:boxCornerRadiusTopStart="30dp">
+            android:hint="Password"
+            android:textColorHint="@color/white"
+            android:transitionName="password_input"
+            app:boxStrokeColor="@color/white"
+            app:boxStrokeWidth="2dp"
+            app:hintTextColor="@color/white"
+            app:passwordToggleEnabled="true"
+            app:passwordToggleTint="@color/white">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="292dp"
                 android:layout_height="wrap_content"
-                android:background="#FAFAFA"
+                android:drawableStart="@drawable/edit_password"
+                android:drawablePadding="10dp"
+                android:textColor="@color/white"
+                android:drawableTint="@color/white"
                 android:inputType="textPassword" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -81,11 +111,30 @@
             android:id="@+id/loginbtn"
             android:layout_width="156dp"
             android:layout_height="wrap_content"
-            android:text="Đăng nhập"
+            android:text="Log in"
+            android:transitionName="submitBtn"
             app:backgroundTint="#272B7C"
             app:cornerRadius="20sp" />
 
+        <TextView
+            android:id="@+id/forgot"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="6sp"
+            android:text="Forgot Password?"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:id="@+id/register"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Create new account"
+            android:textColor="#AFB1E9"
+            android:textStyle="bold"
+            android:transitionName="redirect_text" />
 
     </LinearLayout>
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

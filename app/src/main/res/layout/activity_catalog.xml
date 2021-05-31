@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Catalog">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:background="@color/default_color_app"
+        android:padding="20sp">
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/default_avatar"
+            android:layout_centerVertical="true"
+            android:id="@+id/avatar"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hello World"
+            android:id="@+id/username"
+            android:fontFamily="@font/revalia"
+            android:textSize="20dp"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/avatar"
+            android:textColor="@color/white"
+            android:layout_marginLeft="10dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hello World"
+            android:id="@+id/email"
+            android:textSize="14dp"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/avatar"
+            android:layout_below="@id/username"
+            android:textColor="@color/white"
+            android:layout_marginLeft="10dp"/>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:padding="20sp"
+        android:layout_marginTop="-100dp"
+        android:layout_height="wrap_content">
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="0dp"
+            app:cardBackgroundColor="#5168ed"
+            android:layout_height="125dp"
+            app:cardElevation="10dp"
+            android:layout_margin="10sp"
+            android:layout_weight="1">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="10dp">
+                <ImageView
+                    android:layout_width="40dp"
+                    android:id="@+id/courses_summary_image"
+                    android:layout_height="40dp"
+                    android:src="@drawable/summary_courses_icon"
+                    android:layout_centerHorizontal="true"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="3"
+                    android:textColor="@color/white"
+                    android:textSize="15dp"
+                    android:includeFontPadding="false"
+                    android:layout_centerInParent="true"
+                    android:id="@+id/courses_number"
+                    android:fontFamily="@font/revalia"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="courses"
+                    android:textColor="@color/white"
+                    android:includeFontPadding="false"
+                    android:textSize="15dp"
+                    android:layout_below="@id/courses_number"
+                    android:layout_centerInParent="true"
+                    android:fontFamily="@font/revalia"/>
+
+
+            </RelativeLayout>
+        </com.google.android.material.card.MaterialCardView>
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="0dp"
+            app:cardBackgroundColor="#5168ed"
+            android:layout_height="125dp"
+            app:cardElevation="10dp"
+            android:layout_margin="10sp"
+            android:layout_weight="1">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="10dp">
+                <ImageView
+                    android:layout_width="40dp"
+                    android:id="@+id/videos_summary_image"
+                    android:layout_height="40dp"
+                    android:src="@drawable/summary_videos_icon"
+                    android:layout_centerHorizontal="true"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="3"
+                    android:textColor="@color/white"
+                    android:textSize="15dp"
+                    android:includeFontPadding="false"
+                    android:layout_centerInParent="true"
+                    android:id="@+id/videos_number"
+                    android:fontFamily="@font/revalia"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="videos"
+                    android:textColor="@color/white"
+                    android:includeFontPadding="false"
+                    android:textSize="15dp"
+                    android:layout_below="@id/videos_number"
+                    android:layout_centerInParent="true"
+                    android:fontFamily="@font/revalia"/>
+
+
+            </RelativeLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/catalog_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto"
+        android:padding="10dp"
+        android:text="Enrolled courses:"
+        android:textColor="@color/black"
+        android:textSize="25dp" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/enrolled_courses"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="5sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView5"
+        app:layout_constraintVertical_bias="0.285" />
+</LinearLayout>

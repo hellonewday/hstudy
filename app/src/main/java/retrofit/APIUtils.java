@@ -2,6 +2,7 @@ package retrofit;
 
 import retrofit.service.AccountService;
 import retrofit.service.CourseService;
+import retrofit.service.ManagerService;
 
 public class APIUtils {
     private APIUtils() {
@@ -14,5 +15,9 @@ public class APIUtils {
 
     public static AccountService getAccountService() {
         return RetrofitClient.getClient().create(AccountService.class);
+    }
+
+    public static ManagerService getManagerService(){
+        return RetrofitClient.getClient().create(ManagerService.class);
     }
 }

@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
     android:layout_height="match_parent"
     tools:context=".CourseDetail">
 
@@ -67,5 +67,45 @@
         android:text="Enroll"
         app:backgroundTint="#272B7C"
         app:cornerRadius="20sp" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="371dp"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/enroll"
+        android:layout_alignTop="@+id/enroll"
+        android:layout_alignEnd="@+id/enroll"
+        android:layout_alignBottom="@+id/enroll"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="84dp"
+        android:layout_marginEnd="-226dp"
+        android:layout_marginBottom="-57dp"
+        android:text="Course Description"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_alignTop="@+id/enroll"
+        android:layout_alignBottom="@+id/enroll"
+        android:layout_marginTop="62dp"
+        android:layout_marginBottom="-18dp"
+        android:background="?android:attr/listDivider" />
+
+    <TextView
+        android:id="@+id/description"
+        android:layout_width="148dp"
+        android:layout_height="160dp"
+        android:layout_alignStart="@+id/textView6"
+        android:layout_alignTop="@+id/textView6"
+        android:layout_alignEnd="@+id/textView6"
+        android:layout_alignBottom="@+id/textView6"
+        android:layout_marginStart="-1dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="3dp"
+        android:layout_marginBottom="-177dp"
+        android:text="TextView" />
 
 </RelativeLayout>
